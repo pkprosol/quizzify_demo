@@ -22,3 +22,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Quiz-container {
+  font-family: avenir, Helvetica, Sans-serif;
+  width: 75%;
+  max-width: 800px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.5);
+  padding: 20px;
+}
+
+.Instruction-text {
+  color: grey;
+  font-weight: bold;
+}
+
+.Question-text {
+  margin: 0;
+  font-size: 1.5em;
+}
