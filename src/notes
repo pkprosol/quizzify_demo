@@ -1,0 +1,206 @@
+import React, { Component } from 'react';
+import './App.css';
+var Question = require('./Question.js');
+var Answer = require('./Answer.js');
+
+function provideGameArray() {
+  const gameArray = [
+    {
+      questionText: "Between the two top brands of toothpaste, which is a better choice for most people: Crest Pro-Health or Colgate Total?",
+      answers: [
+        {
+          answerText: "Crest, because Colgate is imported from North Korea.",
+          explanation: "North Korea exports cheap clothes, counterfeit currency, and the occasional bomb.",
+          isCorrect: false
+        },
+        {
+          answerText: "Crest, because it comes in a shinier tube.",
+          explanation: "Unless the tube is shiny enough to use if your mirror is all fogged up.",
+          isCorrect: false
+        },
+        {
+          answerText: "Whichever brand is on sale, of course.",
+          explanation: "Any difference in price would amount to a fraction of a penny per use.",
+          isCorrect: false
+        },
+        {
+          answerText: "Crest, because Colgate contains a chemical that the government has banned from soap and other personal care products.",
+          explanation: "Colgate Total contains a bacteria-killer called 'triclosan', which the government has banned from most other products. Particularly if you are pregnant, we'd recommend switching. On the other hand, people with gum disease might want to stick with Colgate to kill more harmful bacteria, despite the other risks.",
+          isCorrect: true                
+        },
+        {
+          answerText: "Colgate, because it has more fluoride than Crest.",
+          explanation: "Both have roughly the same amount — meaning, the right amount — of fluoride. Adding 'more fluoride' to toothpaste would be like adding more water to a glass that's already full.",
+          isCorrect: false
+        }
+      ],
+      questionType: "basic"
+    },
+    {
+      questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
+      answers: [
+        {
+          answerText: "Kidney disease.",
+          explanation: "Ask your doctor about Zantac, Pepcid, or Tums. That's what we take here at Quizzify. Regular use of Nexium-type drugs has too many suspected long-term side effects for us to take the chance.",
+          isCorrect: true
+        },
+        {
+          answerText: "Bone fractures (especially if you are female).",
+          explanation: "Especially if you have thin or thinning bones, ask your doctor about Zantac, Pepcid, or Tums. Or try active-culture yogurt to restore the natural bacteria to your stomach.",
+          isCorrect: true
+        },
+        {
+          answerText: "Flatulence (especially if you are male).",
+          explanation: "Though many guys we know would love to have this excuse.",
+          isCorrect: false
+        },
+        {
+          answerText: "Heart attacks (especially if you are high-risk to begin with).",
+          explanation: "Ask your doctor about switching to Zantac, Pepcid or Tums. Try active-culture yogurt. Most of all, see for yourself, starting with the link.",
+          isCorrect: true                
+        },
+        {
+          answerText: "Ring Around the Collar.",
+          explanation: "And if it does, there is an easy solution — Wisk around the collar beats Ring Around the Collar every time. (see YouTube for more details.)",
+          isCorrect: false
+        }
+      ],
+      questionType: "basic"      
+    }
+  ];
+
+  return gameArray;
+}
+
+class Quiz extends React.Component {
+  // getInitialState: function () {
+  //   return { 
+  //     answerIndex: 0,
+  //     unselectAll: false
+  //   };
+  // },
+
+  // buttons1: function () {
+
+  //     if (this.state.answerIndex == 0) {
+  //       return (
+  //         <button onClick={() => this.nextButtonTapped()}>Next</button>
+  //       );
+  //     } else if (this.state.answerIndex < provideGameArray().length - 1) {
+  //       return (
+  //         <div>
+  //           <button onClick={() => this.previousButtonTapped()}>Previous</button>
+  //           <button onClick={() => this.nextButtonTapped()}>Next</button>
+  //         </div>
+  //       );
+  //     } else {
+  //       return (
+  //         <button onClick={() => this.previousButtonTapped()}>Previous</button>
+  //       );
+  //     }
+  // },
+
+  // previousButtonTapped: function () {
+  //   var currentIndex = this.state.answerIndex;
+  //   this.setState({
+  //     answerIndex: currentIndex - 1,
+  //     unselectAll: false
+  //   });
+  // },
+
+  // nextButtonTapped: function () {
+  //   var currentIndex = this.state.answerIndex;
+  //   this.setState({
+  //     answerIndex: currentIndex + 1
+  //   });
+  // },
+
+  // unselectAll: function (selectedKey) {
+  //   this.setState({
+  //     unselectAll: true
+  //   });
+  // },
+
+  render() {
+    // var currentQuestionDictionary = provideGameArray()[this.state.answerIndex];
+    // var currentQuestionText = currentQuestionDictionary.questionText;
+    // var answersArray = currentQuestionDictionary.answers;
+
+
+        // <div className="Question-and-answer-container">
+          // <Question questionText={currentQuestionText} />
+        //   <p className="Instruction-text">
+        //     Select 1 Answer
+        //   </p>
+        //   <div className="Answer-array">
+        //     <ol>
+        //       {answersReadyToPass}
+        //     </ol>
+        //   </div>
+        // </div>
+        // {this.buttons1()}
+
+    return (
+      <div className="Quiz-container">Test
+
+      </div>
+    );
+  }
+}
+
+module.exports = Quiz;
+
+
+import React, { Component } from 'react';
+import './App.css';
+
+class Answer extends React.Component {
+  getInitialState: function () {
+    if (this.props.unselectAll) {
+      return {
+        selected: false,
+        highlighted: false
+      };
+    } else {
+      return {
+        selected: false
+      };
+    }
+  },
+
+  selectAnswer: function () {
+    this.props.unselectAll();
+    this.setState({
+      selected: true,
+      highlighted: true
+    });    
+  },
+
+  defineContent: function () {
+    var answerText = this.props.answerDictionary.answerText;
+    var explanation = this.props.answerDictionary.explanation;
+    var isCorrect = this.props.answerDictionary.isCorrect;
+
+    if (this.state.selected && this.state.highlighted) {
+      return (
+        <div>
+          <li><strong>{answerText}</strong></li>
+          <p>{explanation}</p>
+          <p><a href="http://www.google.com">Learn More</a></p>
+        </div>
+      );
+    } else {
+      return (
+        <li onClick={this.selectAnswer}>{answerText}</li>
+      );
+    }
+  },
+
+  render: function () {
+    var returnValue = this.defineContent();
+    return returnValue;
+  }
+});
+
+
+
