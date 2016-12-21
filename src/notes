@@ -73,72 +73,72 @@ function provideGameArray() {
 }
 
 class Quiz extends React.Component {
-  // getInitialState: function () {
-  //   return { 
-  //     answerIndex: 0,
-  //     unselectAll: false
-  //   };
-  // },
+  getInitialState: function () {
+    return { 
+      answerIndex: 0,
+      unselectAll: false
+    };
+  },
 
-  // buttons1: function () {
+  buttons1: function () {
 
-  //     if (this.state.answerIndex == 0) {
-  //       return (
-  //         <button onClick={() => this.nextButtonTapped()}>Next</button>
-  //       );
-  //     } else if (this.state.answerIndex < provideGameArray().length - 1) {
-  //       return (
-  //         <div>
-  //           <button onClick={() => this.previousButtonTapped()}>Previous</button>
-  //           <button onClick={() => this.nextButtonTapped()}>Next</button>
-  //         </div>
-  //       );
-  //     } else {
-  //       return (
-  //         <button onClick={() => this.previousButtonTapped()}>Previous</button>
-  //       );
-  //     }
-  // },
+      if (this.state.answerIndex == 0) {
+        return (
+          <button onClick={() => this.nextButtonTapped()}>Next</button>
+        );
+      } else if (this.state.answerIndex < provideGameArray().length - 1) {
+        return (
+          <div>
+            <button onClick={() => this.previousButtonTapped()}>Previous</button>
+            <button onClick={() => this.nextButtonTapped()}>Next</button>
+          </div>
+        );
+      } else {
+        return (
+          <button onClick={() => this.previousButtonTapped()}>Previous</button>
+        );
+      }
+  },
 
-  // previousButtonTapped: function () {
-  //   var currentIndex = this.state.answerIndex;
-  //   this.setState({
-  //     answerIndex: currentIndex - 1,
-  //     unselectAll: false
-  //   });
-  // },
+  previousButtonTapped: function () {
+    var currentIndex = this.state.answerIndex;
+    this.setState({
+      answerIndex: currentIndex - 1,
+      unselectAll: false
+    });
+  },
 
-  // nextButtonTapped: function () {
-  //   var currentIndex = this.state.answerIndex;
-  //   this.setState({
-  //     answerIndex: currentIndex + 1
-  //   });
-  // },
+  nextButtonTapped: function () {
+    var currentIndex = this.state.answerIndex;
+    this.setState({
+      answerIndex: currentIndex + 1
+    });
+  },
 
-  // unselectAll: function (selectedKey) {
-  //   this.setState({
-  //     unselectAll: true
-  //   });
-  // },
+  unselectAll: function (selectedKey) {
+    this.setState({
+      unselectAll: true
+    });
+  },
 
   render() {
-    // var currentQuestionDictionary = provideGameArray()[this.state.answerIndex];
-    // var currentQuestionText = currentQuestionDictionary.questionText;
-    // var answersArray = currentQuestionDictionary.answers;
+    var currentQuestionDictionary = provideGameArray()[this.state.answerIndex];
+    var currentQuestionText = currentQuestionDictionary.questionText;
+    var answersArray = currentQuestionDictionary.answers;
 
 
-        // <div className="Question-and-answer-container">
-          // <Question questionText={currentQuestionText} />
-        //   <p className="Instruction-text">
-        //     Select 1 Answer
-        //   </p>
-        //   <div className="Answer-array">
-        //     <ol>
-        //       {answersReadyToPass}
-        //     </ol>
-        //   </div>
-        // </div>
-        // {this.buttons1()}
+        <div className="Question-and-answer-container">
+          <Question questionText={currentQuestionText} />
+          <p className="Instruction-text">
+            Select 1 Answer
+          </p>
+          <div className="Answer-array">
+            <ol>
+              {answersReadyToPass}
+            </ol>
+          </div>
+        </div>
+        {this.buttons1()}
 
     return (
       <div className="Quiz-container">Test

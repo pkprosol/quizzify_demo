@@ -1,30 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.Quiz-container {
-  font-family: avenir, Helvetica, Sans-serif;
+.quizContainer {
+  font-family: Avenir, Helvetica, Sans-serif;
   width: 75%;
   max-width: 800px;
   background-color: white;
@@ -40,7 +15,90 @@
   font-weight: bold;
 }
 
-.Question-text {
+.questionText {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
+}
+
+.answerDetail {
+  padding-right: 25px;
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  padding: 10px 15px;
+  box-shadow: 0px 0px 7px #e2e2e2;
+  margin-bottom: 12px;
+  list-style-position: inside;
+  text-indent: -1.2em;
+  padding-left: 2.5em;
+}
+
+.answerDetail {
+  text-indent: 0;
+  padding-left: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+  color: #138a13;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 5px 15px;
+  border: solid 1px #138a13;
+  border-radius: 2px;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.footer {
+  margin-top: 35px;
+}
+
+.scoreBoard {
+  text-align: center;
+}
+
+.footerContainer {
+  padding-left: 20px;
+}
+
+.footerLabel {
+  color: grey;
+  font-size: 0.7em;
+}
+
+.floatLeft {
+  display: inline-block;
+  float: left;
+}
+
+.floatRight {
+  display: inline-block;
+  float: right;
+}
+
+.footerContainer {
+  display: inline-block;
+}
+
+.footerContainer p {
+  margin-top: 0;
+  margin-bottom: 5pt;
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.scoreDisplay {
+  font-size: 1.8em;
 }

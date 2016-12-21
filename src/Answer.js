@@ -2,45 +2,53 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Answer extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      selected: false,
-      highlighted: false // this.props.highlighted
-    };
-  }
 
-  selectAnswer() {
-    this.setState({
-      selected: true,
-      highlighted: true
-    });    
-  }
+  render() {
+    const answerText = this.props.answerDictionary.answerText;
+    const explanation = this.props.answerDictionary.explanation;
+    const isCorrect = this.props.answerDictionary.isCorrect;
 
-  defineContent() {
-    var answerText = this.props.answerDictionary.answerText;
-    var explanation = this.props.answerDictionary.explanation;
-    var isCorrect = this.props.answerDictionary.isCorrect;
-
-    if (this.state.selected && this.state.highlighted) {
+    if (this.props.isHighlighted) {
       return (
-        <div>
-          <li><strong>{answerText}</strong></li>
-          <p>{explanation}</p>
-          <p><a href="http://www.google.com">Learn More</a></p>
+        <div className="listItemContainer">
+          <li>
+            {getAnswerIndicator(isCorrect)}
+            {answerText}
+            <p className="answerDetail">{explanation}</p>
+            <p className="answerDetail"><a href="http://www.google.com">Learn More</a></p>
+          </li>
+        </div>
+      );
+    } else if (this.props.isSelected) {
+      return (
+        <div className="listItemContainer">
+          <li onClick={() => this.props.onClick()}>
+            {getAnswerIndicator(isCorrect)}
+            {answerText}
+          </li>
         </div>
       );
     } else {
       return (
-        <li onClick={this.selectAnswer}>{answerText}</li>
+        <div className="listItemContainer">
+          <li onClick={() => this.props.onClick()}>
+            {answerText}
+          </li>
+        </div>
       );
     }
   }
-
-  render() {
-    var returnValue = this.defineContent();
-    return returnValue;
-  }
 }
 
+export default Answer;
 
+function getAnswerIndicator(answerIsCorrect) {
+  var srcAttribute; 
+  if (answerIsCorrect) {
+    srcAttribute = 'green_check.png';
+  } else {
+    srcAttribute = 'red_x.png';
+  }
+
+  return <img height="20px" width="20px" src={srcAttribute} className="floatRight" />
+}
