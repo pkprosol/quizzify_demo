@@ -61,19 +61,32 @@ class Quiz extends React.Component {
     return <Question questionText={questionText} />;
   }
 
-  render() {
+  renderAnswers() {
     const answersArray = gameArray[this.state.questionIndex].answers;
     var answersList = answersArray.map((answerDictionary, i) => {
       return <Answer key={'answer'+i} answerDictionary={answerDictionary} isHighlighted={this.state.answerHighlightedStatus[i]} isSelected={this.state.answerSelectedStatus[i]} onClick={() => this.handleClick(i)} />
     });
+    return answersList;
+  }
+
+  renderFooter() {
+    return <Footer 
+              answerIndex={this.state.questionIndex} 
+              questionArrayLength={this.state.questionArrayLength} 
+              onClickPrevious={() => this.handleBackButtonClick()} 
+              onClickNext={() => this.handleNextButtonClick()} />;
+  }
+
+  render() {
+
     return (
       <div className="appContainer">
         <div className="quizContainer">
           {this.renderQuestion()}
           <ol>
-            {answersList}
+            {this.renderAnswers()}
           </ol>
-          <Footer answerIndex={this.state.questionIndex} questionArrayLength={this.state.questionArrayLength} onClickPrevious={() => this.handleBackButtonClick()} onClickNext={() => this.handleNextButtonClick()} />
+          
         </div>
       </div>
     );
