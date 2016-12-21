@@ -39,7 +39,7 @@ class Quiz extends React.Component {
       this.setState({
         questionIndex: questionIndex - 1,
         answerHighlightedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null),
-        // answerSelectedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null)
+        answerSelectedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null)
       });
     }    
   }
@@ -58,18 +58,42 @@ class Quiz extends React.Component {
 
   renderQuestion() {
     const questionText = gameArray[this.state.questionIndex].questionText;
+
     return <Question questionText={questionText} />;
+  }
+
+  renderInstructions() {
+    const answerArray = gameArray[this.state.questionIndex].answers;
+    var numberOfRightAnswers = calculateRightAnswers(answerArray);
+    var instructionText;
+
+    if (numberOfRightAnswers == 1) {
+      instructionText = "Choose 1 answer"
+    } else if (numberOfRightAnswers < 4) {
+      instructionText = "Choose " + numberOfRightAnswers + " answers"
+    } else {
+      instructionText = "Choose all correct answers"
+    }
+    return <p className="instructionText">{instructionText}</p>;
   }
 
   renderAnswers() {
     const answersArray = gameArray[this.state.questionIndex].answers;
     var answersList = answersArray.map((answerDictionary, i) => {
-      return <Answer key={'answer'+i} answerDictionary={answerDictionary} isHighlighted={this.state.answerHighlightedStatus[i]} isSelected={this.state.answerSelectedStatus[i]} onClick={() => this.handleClick(i)} />
+
+      return <Answer 
+                key={'answer'+i} 
+                answerDictionary={answerDictionary} 
+                isHighlighted={this.state.answerHighlightedStatus[i]} 
+                isSelected={this.state.answerSelectedStatus[i]} 
+                onClick={() => this.handleClick(i)} />
     });
+
     return answersList;
   }
 
   renderFooter() {
+
     return <Footer 
               answerIndex={this.state.questionIndex} 
               questionArrayLength={this.state.questionArrayLength} 
@@ -83,10 +107,11 @@ class Quiz extends React.Component {
       <div className="appContainer">
         <div className="quizContainer">
           {this.renderQuestion()}
+          {this.renderInstructions()}
           <ol>
             {this.renderAnswers()}
           </ol>
-          
+          {this.renderFooter()}
         </div>
       </div>
     );
@@ -95,6 +120,16 @@ class Quiz extends React.Component {
 
 export default Quiz;
 
+function calculateRightAnswers(answerArray) {
+  var rightAnswers = 0;
+  for (var answerDictionary of answerArray) {
+    if (answerDictionary["isCorrect"]) {
+      rightAnswers += 1;
+    }
+  }
+  console.log(rightAnswers);
 
+  return rightAnswers;
+}
 
 
