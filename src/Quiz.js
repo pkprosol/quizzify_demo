@@ -16,7 +16,9 @@ class Quiz extends React.Component {
       questionIndex: 0,
       answerHighlightedStatus: Array(gameArray[0].answers.length).fill(null),
       answerSelectedStatus: Array(gameArray[0].answers.length).fill(null),
-      questionArrayLength: gameArray.length
+      questionArrayLength: gameArray.length,
+      pointsCurrentQuestion: 0,
+      pointsTotalQuiz: 0
     };
   }
 
@@ -96,7 +98,9 @@ class Quiz extends React.Component {
 
     return <Footer 
               answerIndex={this.state.questionIndex} 
-              questionArrayLength={this.state.questionArrayLength} 
+              questionArrayLength={this.state.questionArrayLength}
+              currentPoints = {this.state.pointsCurrentQuestion}
+              totalPoints = {this.state.pointsTotalQuiz} 
               onClickPrevious={() => this.handleBackButtonClick()} 
               onClickNext={() => this.handleNextButtonClick()} />;
   }

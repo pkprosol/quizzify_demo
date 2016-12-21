@@ -8,11 +8,11 @@ function Footer(props) {
       <div className="scoreBoard floatLeft">
         <div className="footerContainer scoreCurrentQuestionContainer">
           <p className="footerLabel">Points (Current Question)</p>
-          <p className="scoreDisplay scoreCurrentQuestion">+75</p>
+          <p className="scoreDisplay scoreCurrentQuestion">{props.currentPoints}</p>
         </div>
         <div className="footerContainer scoreQuizTotalContainer"> 
           <p className="footerLabel">Points (Quiz Total)</p>
-          <p className="scoreDisplay scoreQuizTotal">225</p>
+          <p className="scoreDisplay scoreQuizTotal">{props.totalPoints}</p>
         </div>
       </div>
       <NavigationButtons answerIndex={props.answerIndex} questionArrayLength={props.questionArrayLength} onClickPrevious={() => props.onClickPrevious()} onClickNext={() => props.onClickNext()} />
