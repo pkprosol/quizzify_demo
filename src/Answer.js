@@ -8,6 +8,8 @@ class Answer extends React.Component {
     const answerText = answerDictionary.answerText;
     const explanation = answerDictionary.explanation;
     const isCorrect = answerDictionary.isCorrect;
+    const linkAddress = this.props.linkAddress;
+    console.log("link: " + linkAddress);
 
     var indicatorText;
     if (isCorrect) {
@@ -16,8 +18,6 @@ class Answer extends React.Component {
       indicatorText = <p className="answerDetail incorrectAnswer smallerFont">{explanation}</p>
     }
 
-    // console.log("highlightedindex: " + this.props.isHighlighted);
-    // console.log("arrayposition: " + this.props.arrayPositionIndex);
     if (this.props.isHighlighted === this.props.arrayPositionIndex) {
       return (
         <div className="listItemContainer">
@@ -25,7 +25,7 @@ class Answer extends React.Component {
             {getAnswerIndicator(isCorrect)}
             {answerText}
             {indicatorText}
-            <p className="answerDetail smallestFont"><a href="http://www.google.com">Learn More</a></p>
+            <p className="answerDetail smallestFont"><a href={linkAddress}>Learn More</a></p>
           </li>
         </div>
       );

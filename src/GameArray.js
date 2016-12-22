@@ -1,42 +1,42 @@
 function GameArray() {
   const gameArray = [
     {
-      questionText: "Between the two top brands of toothpaste, which is a better choice for most people: Crest Pro-Health or Colgate Total?",
+      questionText: "Are eggs good for you?",
       answers: [
         {
-          answerText: "Crest, because Colgate is imported from North Korea.",
-          explanation: "North Korea exports cheap clothes, counterfeit currency, and the occasional bomb.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "Crest, because it comes in a shinier tube.",
-          explanation: "Unless the tube is shiny enough to use if your mirror is all fogged up.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "Whichever brand is on sale, of course.",
-          explanation: "Any difference in price would amount to a fraction of a penny per use.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "Crest, because Colgate contains a chemical that the government has banned from soap and other personal care products.",
-          explanation: "Colgate Total contains a bacteria-killer called 'triclosan', which the government has banned from most other products. Particularly if you are pregnant, we'd recommend switching. On the other hand, people with gum disease might want to stick with Colgate to kill more harmful bacteria, despite the other risks.",
+          answerText: "Yes. They are a tasty and inexpensive source of protein and many vitamins and minerals.",
+          explanation: "CORRECT. Eggs unfairly got a bad rap decades ago, and they still haven't overcome it. As Churchill said: 'A lie travels halfway around the world before the truth can get its pants on.'",
           isCorrect: true,
+          wasSelected: false
+        },
+        {
+          answerText: "Kind of. They have vitamins and protein, but are full of cholesterol.",
+          explanation: "INCORRECT. Foods containing cholesterol do NOT raise most people's cholesterol levels. There is no 'kind of' or 'maybe' here. Eggs are good for us.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "Yes, if you eat the eggwhites only. The yolk has the cholesterol, not the white.",
+          explanation: "INCORRECT. It is perfectly OK to eat the yolk, that's where many of the vitamins are.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "No. Each egg contains about 250 milligrams of cholesterol. That is more than you should eat in a day.",
+          explanation: "INCORRECT. No, no, no, and did we mention ...no? The crusade against cholesterol is based on a total myth. Unless you have a rare condition called hypercholesterolemia (and you would know it if you did), cholesterol in your diet does not increase cholesterol in your blood.",
+          isCorrect: false,
           wasSelected: false            
         },
         {
-          answerText: "Colgate, because it has more fluoride than Crest.",
-          explanation: "Both have roughly the same amount — meaning, the right amount — of fluoride. Adding 'more fluoride' to toothpaste would be like adding more water to a glass that's already full.",
+          answerText: "Only if you buy the 'free range' or 'cage free' eggs, which can be very expensive.",
+          explanation: "INCORRECT. There are good reasons to pay extra to support humanely raised chickens, but superior nutrition has never been proven to be among them.",
           isCorrect: false,
           wasSelected: false
         }
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      link: null 
+      linkAddress: "http://www.webmd.com/diet/features/good-eggs-for-nutrition-theyre-hard-to-beat#1" 
     },
     {
       questionText: "Between the two top brands of toothpaste, which is a better choice for most people: Crest Pro-Health or Colgate Total?",
@@ -74,7 +74,7 @@ function GameArray() {
       ],
       questionCompleted: false,
       questionType: "basic",
-      link: null 
+      linkAddress: "http://www.nytimes.com/2016/09/07/well/live/why-your-toothpaste-has-triclosan.html" 
     },
     {
       questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
@@ -112,7 +112,7 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      link: ""
+      linkAddress: "http://www.npr.org/sections/health-shots/2015/06/11/413433350/data-dive-suggests-link-between-heartburn-drugs-and-heart-attacks"
     },
     {
       questionText: "How does the radiation in a CT ('CAT') scan compare to the radiation in an X-ray?",
@@ -150,7 +150,7 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      link: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/?utm_campaign=KFF%3A+The+Latest&utm_source=hs_email&utm_medium=email&utm_content=25041928&_hsenc=p2ANqtz-_ul8b5fOMKvnvr97BPY0fjlL4Zjmm_pSIlZEVBqcYVbkQNvLsDoaWsHnpTK8uJtTeZRWGQHLFQd2tSVLG22troANRgiPH53pg8DjS8Wedi2S_pIzo&_hsmi=25041928"      
+      linkAddress: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/?utm_campaign=KFF%3A+The+Latest&utm_source=hs_email&utm_medium=email&utm_content=25041928&_hsenc=p2ANqtz-_ul8b5fOMKvnvr97BPY0fjlL4Zjmm_pSIlZEVBqcYVbkQNvLsDoaWsHnpTK8uJtTeZRWGQHLFQd2tSVLG22troANRgiPH53pg8DjS8Wedi2S_pIzo&_hsmi=25041928"      
     },
     {
       questionText: "Custom Question: As an employee of [Company Name], you save on generic prescriptions because you only pay:",
@@ -188,7 +188,7 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      link: null     
+      linkAddress: null     
     }
   ];
 

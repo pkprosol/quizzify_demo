@@ -128,11 +128,17 @@ class Quiz extends React.Component {
   }
 
   renderAnswers() {
-    const answersArray = this.state.gameArray[this.state.questionIndex].answers;
+
+    const gameArray = this.state.gameArray;
+    const questionIndex = this.state.questionIndex; 
+    const linkAddress = gameArray[questionIndex].linkAddress;
+
+    const answersArray = gameArray[questionIndex].answers;
     var answersList = answersArray.map((answerDictionary, i) => {
 
       return <Answer 
                 key={'answer'+i} 
+                linkAddress={linkAddress}
                 answerDictionary={answerDictionary} 
                 arrayPositionIndex={i}
                 isHighlighted={this.state.answerHighlightedStatus} 
