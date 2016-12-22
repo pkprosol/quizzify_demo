@@ -1,25 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 class Answer extends React.Component {
 
   render() {
-    const answerText = this.props.answerDictionary.answerText;
-    const explanation = this.props.answerDictionary.explanation;
-    const isCorrect = this.props.answerDictionary.isCorrect;
+    const answerDictionary = this.props.answerDictionary;
+    const answerText = answerDictionary.answerText;
+    const explanation = answerDictionary.explanation;
+    const isCorrect = answerDictionary.isCorrect;
 
-    if (this.props.isHighlighted) {
+    var indicatorText;
+    if (isCorrect) {
+      indicatorText = <p className="answerDetail correctAnswer smallerFont">{explanation}</p>
+    } else {
+      indicatorText = <p className="answerDetail incorrectAnswer smallerFont">{explanation}</p>
+    }
+
+    // console.log("highlightedindex: " + this.props.isHighlighted);
+    // console.log("arrayposition: " + this.props.arrayPositionIndex);
+    if (this.props.isHighlighted === this.props.arrayPositionIndex) {
       return (
         <div className="listItemContainer">
           <li>
             {getAnswerIndicator(isCorrect)}
             {answerText}
-            <p className="answerDetail">{explanation}</p>
-            <p className="answerDetail"><a href="http://www.google.com">Learn More</a></p>
+            {indicatorText}
+            <p className="answerDetail smallestFont"><a href="http://www.google.com">Learn More</a></p>
           </li>
         </div>
       );
-    } else if (this.props.isSelected) {
+    } else if (answerDictionary.wasSelected) {
       return (
         <div className="listItemContainer">
           <li onClick={() => this.props.onClick()}>
@@ -50,5 +60,5 @@ function getAnswerIndicator(answerIsCorrect) {
     srcAttribute = 'red_x.png';
   }
 
-  return <img height="20px" width="20px" src={srcAttribute} className="floatRight" />
+  return <img alt="Status Indicator" height="20px" width="20px" src={srcAttribute} className="floatRight" />
 }

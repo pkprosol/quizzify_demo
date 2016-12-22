@@ -1,76 +1,107 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+
 import GameArray from './GameArray.js';
 import Question from './Question.js';
 import Answer from './Answer.js';
 import Footer from './Footer.js';
 
-var gameArray = GameArray();
+const gameArrayInitial = GameArray();
 
 class Quiz extends React.Component {
 
   constructor() {
     super();
+
     this.state = {
-      gameArray: gameArray,
+      gameArray: gameArrayInitial,
       questionIndex: 0,
-      answerHighlightedStatus: Array(gameArray[0].answers.length).fill(null),
-      answerSelectedStatus: Array(gameArray[0].answers.length).fill(null),
-      questionArrayLength: gameArray.length,
-      pointsCurrentQuestion: 0,
-      pointsTotalQuiz: 0
+      questionArrayLength: gameArrayInitial.length,      
+
+      answerHighlightedStatus: null,
+      rightAnswersRemaining: calculateRightAnswers(gameArrayInitial[0].answers),
+
+      currentPoints: 0,
+      totalPoints: 0,
+      pointsStyle: {}
     };
   }
 
   handleClick(i) {
-    const answerHighlightedStatus = Array(gameArray[this.state.questionIndex].answers.length).fill(null).slice();
-    answerHighlightedStatus[i] = true;
-    
-    const answerSelectedStatus = this.state.answerSelectedStatus.slice();
-    answerSelectedStatus[i] = true;
+    const questionIndex = this.state.questionIndex;
+    const gameArray = this.state.gameArray;
+    const answersArray = gameArray[questionIndex].answers;
+    var answerSelected = answersArray[i];
+    const wasAlreadySelected = answerSelected.wasSelected;
+
+    answerSelected.wasSelected = true;
+
+    var answerHighlightedStatus = i;
 
     this.setState({
       answerHighlightedStatus: answerHighlightedStatus,
-      answerSelectedStatus: answerSelectedStatus
+      gameArray: gameArray
     });
+
+    if (!wasAlreadySelected) {
+      const isAnswerSelectedCorrect = answerSelected.isCorrect;
+      const rightAnswersRemaining = this.updateRightAnswersRemaining(isAnswerSelectedCorrect);
+      this.updatePoints(isAnswerSelectedCorrect, rightAnswersRemaining);
+    }
+  }
+
+  updateRightAnswersRemaining(isAnswerSelectedCorrect) {
+    var rightAnswersRemaining = this.state.rightAnswersRemaining;
+    if (isAnswerSelectedCorrect) {
+      
+      rightAnswersRemaining -= 1;
+      this.setState({
+        rightAnswersRemaining: rightAnswersRemaining
+      });
+    }
+    return rightAnswersRemaining;
   }
 
   handleBackButtonClick() {
     const questionIndex = this.state.questionIndex;
     if (questionIndex > 0) {
-      this.setState({
-        questionIndex: questionIndex - 1,
-        answerHighlightedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null),
-        answerSelectedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null)
-      });
-    }    
+      this.resetQuestion(-1); 
+    }      
   }
   
   handleNextButtonClick() {
     const questionIndex = this.state.questionIndex;
     const questionArrayLength = this.state.questionArrayLength;
     if (questionIndex < questionArrayLength - 1) {
-      this.setState({
-        questionIndex: questionIndex + 1,
-        answerHighlightedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null),
-        answerSelectedStatus: Array(gameArray[this.state.questionIndex].answers.length).fill(null)
-      });
-    }    
+      this.resetQuestion(1);
+    }   
+  }
+
+  resetQuestion(indexChange) {
+    const currentIndex = this.state.questionIndex;
+    const newIndex = currentIndex + indexChange;
+    this.setState({
+      questionIndex: newIndex,
+      answerHighlightedStatus: null,
+      rightAnswersRemaining: calculateRightAnswers(this.state.gameArray[newIndex].answers),
+      currentPoints: 0
+    });   
   }
 
   renderQuestion() {
-    const questionText = gameArray[this.state.questionIndex].questionText;
+    const questionText = this.state.gameArray[this.state.questionIndex].questionText;
 
     return <Question questionText={questionText} />;
   }
 
   renderInstructions() {
-    const answerArray = gameArray[this.state.questionIndex].answers;
-    var numberOfRightAnswers = calculateRightAnswers(answerArray);
+    var numberOfRightAnswers = this.state.rightAnswersRemaining;
     var instructionText;
 
-    if (numberOfRightAnswers == 1) {
+    if (numberOfRightAnswers === 1) {
       instructionText = "Choose 1 answer"
+    } else if (numberOfRightAnswers <= 0) {
+      instructionText = "You've completed this question!"
     } else if (numberOfRightAnswers < 4) {
       instructionText = "Choose " + numberOfRightAnswers + " answers"
     } else {
@@ -80,14 +111,14 @@ class Quiz extends React.Component {
   }
 
   renderAnswers() {
-    const answersArray = gameArray[this.state.questionIndex].answers;
+    const answersArray = this.state.gameArray[this.state.questionIndex].answers;
     var answersList = answersArray.map((answerDictionary, i) => {
 
       return <Answer 
                 key={'answer'+i} 
                 answerDictionary={answerDictionary} 
-                isHighlighted={this.state.answerHighlightedStatus[i]} 
-                isSelected={this.state.answerSelectedStatus[i]} 
+                arrayPositionIndex={i}
+                isHighlighted={this.state.answerHighlightedStatus} 
                 onClick={() => this.handleClick(i)} />
     });
 
@@ -99,10 +130,53 @@ class Quiz extends React.Component {
     return <Footer 
               answerIndex={this.state.questionIndex} 
               questionArrayLength={this.state.questionArrayLength}
-              currentPoints = {this.state.pointsCurrentQuestion}
-              totalPoints = {this.state.pointsTotalQuiz} 
+              currentPoints={this.state.currentPoints}
+              totalPoints={this.state.totalPoints} 
+              pointsStyle={this.state.pointsStyle}
               onClickPrevious={() => this.handleBackButtonClick()} 
               onClickNext={() => this.handleNextButtonClick()} />;
+  }
+
+  updatePoints(answerIsCorrect, rightAnswersRemaining) {
+    const pointsChange = this.getPointsChange(answerIsCorrect, rightAnswersRemaining);
+    this.setPointsState(pointsChange);
+  } 
+
+  getPointsChange(answerIsCorrect, rightAnswersRemaining) {
+    const isQuestionComplete = (rightAnswersRemaining <= 0);
+    if (answerIsCorrect && isQuestionComplete) {
+      return 100;
+    } else if (!answerIsCorrect && !isQuestionComplete) {
+      return -25;
+    } else {
+      return 0;
+    }
+  }
+
+  setPointsState(pointsChange) {
+    const currentPoints = this.state.currentPoints;
+    const totalPoints = this.state.totalPoints;
+
+    const newCurrentPoints = currentPoints + pointsChange;
+    const newTotalPoints = totalPoints + pointsChange;
+
+    const newPointsStyle = this.setPointsStyleState(pointsChange);
+
+    this.setState({
+      currentPoints: newCurrentPoints,
+      totalPoints: newTotalPoints,
+      pointsStyle: newPointsStyle
+    });
+  }
+
+  setPointsStyleState(pointsChange) {
+    var pointsStyle;
+    if (pointsChange > 0) {
+      pointsStyle = { color: '#138a13' };
+    } else if (pointsChange < 0) {
+      pointsStyle = { color: '#bd0101' };
+    }
+    return pointsStyle;
   }
 
   render() {
@@ -131,9 +205,10 @@ function calculateRightAnswers(answerArray) {
       rightAnswers += 1;
     }
   }
-  console.log(rightAnswers);
 
   return rightAnswers;
 }
+
+
 
 

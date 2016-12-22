@@ -6,7 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%;
-  box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.5);
+  box-shadow: 0px 0px 10px #dddddd;
   padding: 20px;
 }
 
@@ -30,7 +30,7 @@ ol {
 
 li {
   padding: 10px 15px;
-  box-shadow: 0px 0px 7px #e2e2e2;
+  box-shadow: 0px 0px 10px #dddddd;
   margin-bottom: 12px;
   list-style-position: inside;
   text-indent: -1.2em;
@@ -50,7 +50,8 @@ button {
   font: inherit;
   line-height: normal;
   overflow: visible;
-  padding: 5px 15px;
+  padding: 10px 25px;
+  margin-left: 20px;
   border: solid 1px #138a13;
   border-radius: 2px;
   -webkit-appearance: button;
@@ -59,12 +60,37 @@ button {
   -ms-user-select: none;
 }
 
+button:hover { 
+  background-color: #138a13;
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+.correctAnswer {
+  color: #138a13;
+}
+
+.incorrectAnswer {
+  color: #bd0101;
+}
+
 .footer {
   margin-top: 35px;
 }
 
 .scoreBoard {
   text-align: center;
+}
+
+.smallerFont {
+  font-size: 0.9em;
+}
+
+.smallestFont {
+  font-size: 0.8em;
 }
 
 .footerContainer {

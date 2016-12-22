@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 function NavigationButtons(props) {
-  if (props.answerIndex == 0) {
+  if (props.answerIndex === 0) {
     return (
       <div className="buttonContainer floatRight"> 
         <button className="footerButton nextQuestion" onClick={() => props.onClickNext()}>Next Question</button>
