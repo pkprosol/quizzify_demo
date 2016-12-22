@@ -39,11 +39,10 @@ class Quiz extends React.Component {
     var answerHighlightedStatus = i;
 
     this.setState({
-      answerHighlightedStatus: answerHighlightedStatus,
-      gameArray: gameArray
+      answerHighlightedStatus: answerHighlightedStatus
     });
 
-    if (!wasAlreadySelected) {
+    if (!wasAlreadySelected && !this.isQuestionComplete()) {
       const isAnswerSelectedCorrect = answerSelected.isCorrect;
       const rightAnswersRemaining = this.updateRightAnswersRemaining(isAnswerSelectedCorrect);
       this.updatePoints(isAnswerSelectedCorrect, rightAnswersRemaining);
@@ -55,11 +54,27 @@ class Quiz extends React.Component {
     if (isAnswerSelectedCorrect) {
       
       rightAnswersRemaining -= 1;
+      if (rightAnswersRemaining <= 0) {
+        this.markQuestionComplete();
+      }      
       this.setState({
         rightAnswersRemaining: rightAnswersRemaining
       });
     }
     return rightAnswersRemaining;
+  }
+
+  markQuestionComplete() {
+    var gameArray = this.state.gameArray;
+    gameArray[this.state.questionIndex].wasQuestionCompleted = true;
+
+    this.setState({
+      gameArray:gameArray
+    });
+  }
+
+  isQuestionComplete() {
+    return this.state.gameArray[this.state.questionIndex].wasQuestionCompleted;
   }
 
   handleBackButtonClick() {
@@ -98,7 +113,9 @@ class Quiz extends React.Component {
     var numberOfRightAnswers = this.state.rightAnswersRemaining;
     var instructionText;
 
-    if (numberOfRightAnswers === 1) {
+    if (this.isQuestionComplete()) {
+      instructionText = "You've completed this question!"
+    } else if (numberOfRightAnswers === 1) {
       instructionText = "Choose 1 answer"
     } else if (numberOfRightAnswers <= 0) {
       instructionText = "You've completed this question!"
@@ -180,7 +197,6 @@ class Quiz extends React.Component {
   }
 
   render() {
-
     return (
       <div className="appContainer">
         <div className="quizContainer">

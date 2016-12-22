@@ -34,8 +34,9 @@ function GameArray() {
           wasSelected: false
         }
       ],
-      questionCompleted: false,
-      questionType: "basic"
+      wasQuestionCompleted: false,
+      questionType: "basic",
+      link: null 
     },
     {
       questionText: "Between the two top brands of toothpaste, which is a better choice for most people: Crest Pro-Health or Colgate Total?",
@@ -72,7 +73,8 @@ function GameArray() {
         }
       ],
       questionCompleted: false,
-      questionType: "basic"
+      questionType: "basic",
+      link: null 
     },
     {
       questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
@@ -108,7 +110,7 @@ function GameArray() {
           wasSelected: false
         }
       ],
-      questionCompleted: false,
+      wasQuestionCompleted: false,
       questionType: "basic",
       link: ""
     },
@@ -146,7 +148,7 @@ function GameArray() {
           wasSelected: false
         }
       ],
-      questionCompleted: false,
+      wasQuestionCompleted: false,
       questionType: "basic",
       link: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/?utm_campaign=KFF%3A+The+Latest&utm_source=hs_email&utm_medium=email&utm_content=25041928&_hsenc=p2ANqtz-_ul8b5fOMKvnvr97BPY0fjlL4Zjmm_pSIlZEVBqcYVbkQNvLsDoaWsHnpTK8uJtTeZRWGQHLFQd2tSVLG22troANRgiPH53pg8DjS8Wedi2S_pIzo&_hsmi=25041928"      
     },
@@ -184,7 +186,7 @@ function GameArray() {
           wasSelected: false
         }
       ],
-      questionCompleted: false,
+      wasQuestionCompleted: false,
       questionType: "basic",
       link: null     
     }
