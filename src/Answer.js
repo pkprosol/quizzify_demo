@@ -5,17 +5,25 @@ class Answer extends React.Component {
 
   render() {
     const answerDictionary = this.props.answerDictionary;
-    const answerText = answerDictionary.answerText;
+    var answerText = answerDictionary.answerText;
     const explanation = answerDictionary.explanation;
     const isCorrect = answerDictionary.isCorrect;
     const linkAddress = this.props.linkAddress;
     console.log("link: " + linkAddress);
 
+    var pointsChange = "";
+    if (this.props.pointsChange > 0) {
+      pointsChange = " +" + this.props.pointsChange + " points. This question is now complete. Review or keep going.";
+    } else if (this.props.pointsChange < 0) {
+      pointsChange = " " + this.props.pointsChange + " points";
+    } 
+
+
     var indicatorText;
     if (isCorrect) {
-      indicatorText = <p className="answerDetail correctAnswer smallerFont">{explanation}</p>
+      indicatorText = <p className="answerDetail correctAnswer smallerFont">{explanation}<strong>{pointsChange}</strong></p>
     } else {
-      indicatorText = <p className="answerDetail incorrectAnswer smallerFont">{explanation}</p>
+      indicatorText = <p className="answerDetail incorrectAnswer smallerFont">{explanation}<strong>{pointsChange}</strong></p>
     }
 
     if (this.props.isHighlighted === this.props.arrayPositionIndex) {

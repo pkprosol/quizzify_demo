@@ -36,7 +36,8 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      linkAddress: "http://www.webmd.com/diet/features/good-eggs-for-nutrition-theyre-hard-to-beat#1" 
+      linkAddress: "http://www.webmd.com/diet/features/good-eggs-for-nutrition-theyre-hard-to-beat#1",
+      harvardApproved: false
     },
     {
       questionText: "Between the two top brands of toothpaste, which is a better choice for most people: Crest Pro-Health or Colgate Total?",
@@ -72,47 +73,9 @@ function GameArray() {
           wasSelected: false
         }
       ],
-      questionCompleted: false,
-      questionType: "basic",
-      linkAddress: "http://www.nytimes.com/2016/09/07/well/live/why-your-toothpaste-has-triclosan.html" 
-    },
-    {
-      questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
-      answers: [
-        {
-          answerText: "Kidney disease.",
-          explanation: "Ask your doctor about Zantac, Pepcid, or Tums. That's what we take here at Quizzify. Regular use of Nexium-type drugs has too many suspected long-term side effects for us to take the chance.",
-          isCorrect: true,
-          wasSelected: false
-        },
-        {
-          answerText: "Bone fractures (especially if you are female).",
-          explanation: "Especially if you have thin or thinning bones, ask your doctor about Zantac, Pepcid, or Tums. Or try active-culture yogurt to restore the natural bacteria to your stomach.",
-          isCorrect: true,
-          wasSelected: false
-        },
-        {
-          answerText: "Flatulence (especially if you are male).",
-          explanation: "Though many guys we know would love to have this excuse.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "Heart attacks (especially if you are high-risk to begin with).",
-          explanation: "Ask your doctor about switching to Zantac, Pepcid or Tums. Try active-culture yogurt. Most of all, see for yourself, starting with the link.",
-          isCorrect: true,
-          wasSelected: false                
-        },
-        {
-          answerText: "Ring Around the Collar.",
-          explanation: "And if it does, there is an easy solution — Wisk around the collar beats Ring Around the Collar every time. (see YouTube for more details.)",
-          isCorrect: false,
-          wasSelected: false
-        }
-      ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      linkAddress: "http://www.npr.org/sections/health-shots/2015/06/11/413433350/data-dive-suggests-link-between-heartburn-drugs-and-heart-attacks"
+      linkAddress: "http://www.nytimes.com/2016/09/07/well/live/why-your-toothpaste-has-triclosan.html" 
     },
     {
       questionText: "How does the radiation in a CT ('CAT') scan compare to the radiation in an X-ray?",
@@ -150,7 +113,47 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      linkAddress: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/?utm_campaign=KFF%3A+The+Latest&utm_source=hs_email&utm_medium=email&utm_content=25041928&_hsenc=p2ANqtz-_ul8b5fOMKvnvr97BPY0fjlL4Zjmm_pSIlZEVBqcYVbkQNvLsDoaWsHnpTK8uJtTeZRWGQHLFQd2tSVLG22troANRgiPH53pg8DjS8Wedi2S_pIzo&_hsmi=25041928"      
+      linkAddress: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/?utm_campaign=KFF%3A+The+Latest&utm_source=hs_email&utm_medium=email&utm_content=25041928&_hsenc=p2ANqtz-_ul8b5fOMKvnvr97BPY0fjlL4Zjmm_pSIlZEVBqcYVbkQNvLsDoaWsHnpTK8uJtTeZRWGQHLFQd2tSVLG22troANRgiPH53pg8DjS8Wedi2S_pIzo&_hsmi=25041928",
+      harvardApproved: true    
+    },
+    {
+      questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
+      answers: [
+        {
+          answerText: "Kidney disease.",
+          explanation: "Ask your doctor about Zantac, Pepcid, or Tums. That's what we take here at Quizzify. Regular use of Nexium-type drugs has too many suspected long-term side effects for us to take the chance.",
+          isCorrect: true,
+          wasSelected: false
+        },
+        {
+          answerText: "Bone fractures (especially if you are female).",
+          explanation: "Especially if you have thin or thinning bones, ask your doctor about Zantac, Pepcid, or Tums. Or try active-culture yogurt to restore the natural bacteria to your stomach.",
+          isCorrect: true,
+          wasSelected: false
+        },
+        {
+          answerText: "Flatulence (especially if you are male).",
+          explanation: "Though many guys we know would love to have this excuse.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "Heart attacks (especially if you are high-risk to begin with).",
+          explanation: "Ask your doctor about switching to Zantac, Pepcid or Tums. Try active-culture yogurt. Most of all, see for yourself, starting with the link.",
+          isCorrect: true,
+          wasSelected: false                
+        },
+        {
+          answerText: "Ring Around the Collar.",
+          explanation: "And if it does, there is an easy solution — Wisk around the collar beats Ring Around the Collar every time. (see YouTube for more details.)",
+          isCorrect: false,
+          wasSelected: false
+        }
+      ],
+      wasQuestionCompleted: false,
+      questionType: "basic",
+      linkAddress: "http://www.npr.org/sections/health-shots/2015/06/11/413433350/data-dive-suggests-link-between-heartburn-drugs-and-heart-attacks",
+      harvardApproved: true
     },
     {
       questionText: "Custom Question: As an employee of [Company Name], you save on generic prescriptions because you only pay:",

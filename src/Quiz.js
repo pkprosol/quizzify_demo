@@ -5,6 +5,7 @@ import GameArray from './GameArray.js';
 import Question from './Question.js';
 import Answer from './Answer.js';
 import Footer from './Footer.js';
+import LastScreen from './LastScreen.js';
 
 const gameArrayInitial = GameArray();
 
@@ -23,7 +24,10 @@ class Quiz extends React.Component {
 
       currentPoints: 0,
       totalPoints: 0,
-      pointsStyle: {}
+      pointsChange: 0,
+      pointsStyle: {},
+
+      lastScreen: false
     };
   }
 
@@ -41,6 +45,12 @@ class Quiz extends React.Component {
     this.setState({
       answerHighlightedStatus: answerHighlightedStatus
     });
+
+    if (wasAlreadySelected || this.isQuestionComplete) {
+      this.setState({
+        pointsChange: 0
+      });
+    }
 
     if (!wasAlreadySelected && !this.isQuestionComplete()) {
       const isAnswerSelectedCorrect = answerSelected.isCorrect;
@@ -87,26 +97,38 @@ class Quiz extends React.Component {
   handleNextButtonClick() {
     const questionIndex = this.state.questionIndex;
     const questionArrayLength = this.state.questionArrayLength;
-    if (questionIndex < questionArrayLength - 1) {
+    if (questionIndex < questionArrayLength) {
       this.resetQuestion(1);
-    }   
+    } 
   }
 
   resetQuestion(indexChange) {
     const currentIndex = this.state.questionIndex;
     const newIndex = currentIndex + indexChange;
-    this.setState({
-      questionIndex: newIndex,
-      answerHighlightedStatus: null,
-      rightAnswersRemaining: calculateRightAnswers(this.state.gameArray[newIndex].answers),
-      currentPoints: 0
-    });   
+    if (newIndex < this.state.questionArrayLength) {
+      this.setState({
+        questionIndex: newIndex,
+        answerHighlightedStatus: null,
+        rightAnswersRemaining: calculateRightAnswers(this.state.gameArray[newIndex].answers),
+        currentPoints: 0,
+        pointsChange: 0,
+        lastScreen: false
+      });   
+    } else {
+      this.setState({
+        questionIndex: newIndex,
+        currentPoints: 0,
+        pointsChange: 0,
+        lastScreen: true
+      });       
+    }
+       
   }
 
   renderQuestion() {
-    const questionText = this.state.gameArray[this.state.questionIndex].questionText;
+    const questionDictionary = this.state.gameArray[this.state.questionIndex];
 
-    return <Question questionText={questionText} />;
+    return <Question questionDictionary={questionDictionary} />;
   }
 
   renderInstructions() {
@@ -142,6 +164,7 @@ class Quiz extends React.Component {
                 answerDictionary={answerDictionary} 
                 arrayPositionIndex={i}
                 isHighlighted={this.state.answerHighlightedStatus} 
+                pointsChange={this.state.pointsChange}
                 onClick={() => this.handleClick(i)} />
     });
 
@@ -151,13 +174,15 @@ class Quiz extends React.Component {
   renderFooter() {
 
     return <Footer 
+              currentQuestion={this.state.gameArray[this.state.questionIndex]}
               answerIndex={this.state.questionIndex} 
               questionArrayLength={this.state.questionArrayLength}
               currentPoints={this.state.currentPoints}
               totalPoints={this.state.totalPoints} 
               pointsStyle={this.state.pointsStyle}
               onClickPrevious={() => this.handleBackButtonClick()} 
-              onClickNext={() => this.handleNextButtonClick()} />;
+              onClickNext={() => this.handleNextButtonClick()} 
+              isLastScreen={this.state.lastScreen} />;
   }
 
   updatePoints(answerIsCorrect, rightAnswersRemaining) {
@@ -188,6 +213,7 @@ class Quiz extends React.Component {
     this.setState({
       currentPoints: newCurrentPoints,
       totalPoints: newTotalPoints,
+      pointsChange: pointsChange,
       pointsStyle: newPointsStyle
     });
   }
@@ -203,18 +229,27 @@ class Quiz extends React.Component {
   }
 
   render() {
-    return (
-      <div className="appContainer">
-        <div className="quizContainer">
-          {this.renderQuestion()}
-          {this.renderInstructions()}
-          <ol>
-            {this.renderAnswers()}
-          </ol>
+    if (this.state.lastScreen) {
+      return (
+        <div className="appContainer">
+          <LastScreen />
           {this.renderFooter()}
         </div>
-      </div>
-    );
+      );   
+    } else {
+      return (
+        <div className="appContainer">
+          <div className="quizContainer">
+            {this.renderQuestion()}
+            {this.renderInstructions()}
+            <ol>
+              {this.renderAnswers()}
+            </ol>
+            {this.renderFooter()}
+          </div>
+        </div>
+      );   
+    }
   }
 }
 

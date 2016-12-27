@@ -1,4 +1,4 @@
-.quizContainer {
+.appContainer {
   font-family: Avenir, Helvetica, Sans-serif;
   width: 75%;
   max-width: 800px;
@@ -16,8 +16,17 @@
 }
 
 .questionText {
-  margin: 0;
   font-size: 1.2em;
+  margin-top: 0;
+}
+
+.socialProofImageContainer {
+  text-align: right;
+  margin-left: 5%;
+}
+
+.socialProofImage {
+  height: 25px;
 }
 
 .answerDetail {
@@ -35,11 +44,16 @@ li {
   list-style-position: inside;
   text-indent: -1.2em;
   padding-left: 2.5em;
+  padding-right: 20px;
 }
 
 .answerDetail {
   text-indent: 0;
   padding-left: 0;
+}
+
+.buttonContainer {
+  margin-top: 10px;
 }
 
 button {
@@ -61,8 +75,8 @@ button {
 }
 
 button:hover { 
-  background-color: #138a13;
-  color: white;
+  background-color: #138a13 !important;
+  color: white !important;
 }
 
 button:focus {
@@ -127,4 +141,81 @@ button:focus {
 
 .scoreDisplay {
   font-size: 1.8em;
+}
+
+.lastScreenContainer {
+  font-weight: normal;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.fontWeightNormal {
+  font-weight: normal;
+}
+
+/* MOBILE */
+
+@media (max-device-width : 667px) {
+  .appContainer {
+    width: 90%;
+    max-width: none;
+    margin-top: 0;
+    padding: 5%;
+  }  
+
+  .quizContainer {
+    padding-bottom: 135px;
+  }
+
+  .footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 0px 10px #c1c1c1;
+    margin: 0;
+    padding-top: 15px;
+  }
+
+  .footerLabel {
+    display: inline-block;
+    margin-right: 20px;
+    width: 75px;
+  }
+
+  .scoreDisplay {
+    display: inline-block;
+  }
+
+  .scoreBoard {
+    float: none;
+    display: block;
+  }
+
+  .footerContainer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .buttonContainer {
+    float: none;
+    width: 100%;
+  }
+
+  button:hover { 
+    background: none !important;
+    color: #138a13 !important;
+  }
+
+  .footerButton {
+    width: 50%;
+    margin: 0;
+  }
+
+  .soloButton {
+    width: 100%;
+  }
 }

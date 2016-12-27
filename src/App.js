@@ -6,7 +6,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Quiz />
+      <div>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+        <Quiz />
+      </div>
     );
   }
 }

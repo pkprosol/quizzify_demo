@@ -4,15 +4,16 @@ import Points from './Points.js';
 import NavigationButtons from './NavigationButtons.js';
 
 function Footer(props) {
-
   return (
     <div className="footer">
       <Points 
         currentPoints={props.currentPoints} 
         totalPoints={props.totalPoints}
-        pointsStyle={props.pointsStyle} />
+        pointsStyle={props.pointsStyle} 
+        isLastScreen={props.isLastScreen} />
 
       <NavigationButtons 
+        currentQuestion={props.currentQuestion}
         answerIndex={props.answerIndex} 
         questionArrayLength={props.questionArrayLength} 
         onClickPrevious={() => props.onClickPrevious()} 
@@ -21,7 +22,7 @@ function Footer(props) {
       <div className="clearBoth"></div>   
 
     </div>
-  );
+  );   
 }
 
 export default Footer;

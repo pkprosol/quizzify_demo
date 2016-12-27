@@ -4,9 +4,29 @@ import './App.css';
 class Question extends React.Component {
 
   render() {
-    return (
-      <h1 className="questionText">{this.props.questionText}</h1>
-    );
+    const questionDictionary = this.props.questionDictionary;
+    const questionText = questionDictionary.questionText;
+    const isHarvardApproved = questionDictionary.harvardApproved;
+
+    if (isHarvardApproved) {
+      return (
+        <div>
+          <div className="socialProofImageContainer floatRight">
+            <img alt="HMS Logo" className="socialProofImage" src="hms_logo.png" />
+          </div>
+          <div className="questionContainer">
+            <h1 className="questionText">{questionText}</h1>
+          </div>
+        </div>
+      );      
+    } else {
+      return (
+        <div>
+          <h1 className="questionText">{questionText}</h1>
+        </div>
+      );         
+    }
+
   }
 }
 
