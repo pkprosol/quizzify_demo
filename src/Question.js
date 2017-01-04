@@ -12,7 +12,7 @@ class Question extends React.Component {
       return (
         <div>
           <div className="socialProofImageContainer floatRight">
-            <img alt="HMS Logo" className="socialProofImage" src="hms_logo.png" />
+            <img alt="HMS Logo" className="socialProofImage" src="https://raw.githubusercontent.com/pkprosol/quizzify_demo/master/public/hms_logo.png" />
           </div>
           <div className="questionContainer">
             <h1 className="questionText">{questionText}</h1>
@@ -26,7 +26,6 @@ class Question extends React.Component {
         </div>
       );         
     }
-
   }
 }
 

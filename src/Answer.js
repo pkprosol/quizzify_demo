@@ -9,7 +9,12 @@ class Answer extends React.Component {
     const explanation = answerDictionary.explanation;
     const isCorrect = answerDictionary.isCorrect;
     const linkAddress = this.props.linkAddress;
-    console.log("link: " + linkAddress);
+    
+    var questionLink;
+    if (linkAddress) {
+      questionLink = <p className="answerDetail smallestFont"><a href={linkAddress} target="_blank">Learn More</a></p>;
+    } 
+    
 
     var pointsChange = "";
     if (this.props.pointsChange > 0) {
@@ -33,7 +38,7 @@ class Answer extends React.Component {
             {getAnswerIndicator(isCorrect)}
             {answerText}
             {indicatorText}
-            <p className="answerDetail smallestFont"><a href={linkAddress}>Learn More</a></p>
+            {questionLink}
           </li>
         </div>
       );
@@ -63,9 +68,9 @@ export default Answer;
 function getAnswerIndicator(answerIsCorrect) {
   var srcAttribute; 
   if (answerIsCorrect) {
-    srcAttribute = 'green_check.png';
+    srcAttribute = 'https://raw.githubusercontent.com/pkprosol/quizzify_demo/master/public/green_check.png';
   } else {
-    srcAttribute = 'red_x.png';
+    srcAttribute = 'https://raw.githubusercontent.com/pkprosol/quizzify_demo/master/public/red_x.png';
   }
 
   return <img alt="Status Indicator" height="20px" width="20px" src={srcAttribute} className="floatRight" />
