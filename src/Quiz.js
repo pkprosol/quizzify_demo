@@ -19,7 +19,7 @@ class Quiz extends React.Component {
       questionIndex: 0,
       questionArrayLength: gameArrayInitial.length,      
 
-      answerHighlightedStatus: null,
+      answerHighlightedStatus: null, // Change to active answer status (highlighted has visual connotation)
       rightAnswersRemaining: calculateRightAnswers(gameArrayInitial[0].answers),
 
       currentPoints: 0,
@@ -110,15 +110,11 @@ class Quiz extends React.Component {
         questionIndex: newIndex,
         answerHighlightedStatus: null,
         rightAnswersRemaining: calculateRightAnswers(this.state.gameArray[newIndex].answers),
-        currentPoints: 0,
-        pointsChange: 0,
         lastScreen: false
       });   
     } else {
       this.setState({
         questionIndex: newIndex,
-        currentPoints: 0,
-        pointsChange: 0,
         lastScreen: true
       });       
     }

@@ -75,7 +75,8 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      linkAddress: "http://www.nytimes.com/2016/09/07/well/live/why-your-toothpaste-has-triclosan.html" 
+      linkAddress: "http://www.nytimes.com/2016/09/07/well/live/why-your-toothpaste-has-triclosan.html",
+      harvardApproved: false 
     },
     {
       questionText: "How does the radiation in a CT ('CAT') scan compare to the radiation in an X-ray?",
@@ -191,7 +192,8 @@ function GameArray() {
       ],
       wasQuestionCompleted: false,
       questionType: "basic",
-      linkAddress: null     
+      linkAddress: null,
+      harvardApproved: false
     }
   ];
 

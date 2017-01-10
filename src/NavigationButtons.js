@@ -10,7 +10,7 @@ function NavigationButtons(props) {
       color: '#138a13'
     }
   }
-
+// Function delegation using closures from Quiz.js
   if (props.answerIndex === 0) {
     return (
       <div className="buttonContainer floatRight"> 

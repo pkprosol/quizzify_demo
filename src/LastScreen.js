@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-class LastScreen extends React.Component {
+class LastScreen extends React.Component { // Change to stateless function
 
   render() {
     return (

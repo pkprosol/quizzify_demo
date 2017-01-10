@@ -14,7 +14,6 @@ class Answer extends React.Component {
     if (linkAddress) {
       questionLink = <p className="answerDetail smallestFont"><a href={linkAddress} target="_blank">Learn More</a></p>;
     } 
-    
 
     var pointsChange = "";
     if (this.props.pointsChange > 0) {
@@ -23,7 +22,6 @@ class Answer extends React.Component {
       pointsChange = " " + this.props.pointsChange + " points";
     } 
 
-
     var indicatorText;
     if (isCorrect) {
       indicatorText = <p className="answerDetail correctAnswer smallerFont">{explanation}<strong>{pointsChange}</strong></p>
@@ -31,7 +29,7 @@ class Answer extends React.Component {
       indicatorText = <p className="answerDetail incorrectAnswer smallerFont">{explanation}<strong>{pointsChange}</strong></p>
     }
 
-    if (this.props.isHighlighted === this.props.arrayPositionIndex) {
+    if (this.props.isHighlighted === this.props.arrayPositionIndex) { // arrayIndex 
       return (
         <div className="listItemContainer">
           <li>
