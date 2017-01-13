@@ -1,5 +1,46 @@
+import React from 'react';
+
 function GameArray() {
   const gameArray = [
+    {
+      questionText: "How many times do you see sugar (of any kind) on this Quaker® Quinoa Granola Bar package?",
+      answers: [
+        {
+          answerText: "3",
+          explanation: "INCORRECT. It's a bit higher, believe it or not.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "5",
+          explanation: "INCORRECT. Not quite high enough.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "7",
+          explanation: "Almost there.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "10",
+          explanation: "Bingo! That's right. See the highlights to identify all the different mentions of sugar.",
+          isCorrect: true,
+          wasSelected: false            
+        },
+      ],
+      sidePanel: {
+        image: "https://static1.squarespace.com/static/553eac55e4b088624077ce36/t/570ffd598259b56dfebd2cd5/1460665690020/quinoa_quinoa_yogurt_fruit_-amp-_nut-_5ct.jpg",
+        body: <p><strong>INGREDIENTS:</strong><br />
+            QUINOA, YOGURT FLAVORED COATING (<span className='highlight-text'>SUGAR</span>, PALMKERNEL AND PALM OIL, WHEY PROTEIN CONCENTRATE, DRIED NONFAT YOGURT - HEAT TREATED AFTER CULTURING [CULTURED NONFAT MILK], SOY LECITHIN, NATURAL FLAVOR, ARTIFICIAL COLOR, CITRIC ACID, SALT), <span className='highlight-text'>GLUCOSE</span>, GRANOLA (WHOLE GRAIN ROLLED OATS, WHOLEGRAIN ROLLED WHEAT, <span className='highlight-text'>BROWN SUGAR</span>, SUNFLOWER OIL, DRIED UNSWEETENED COCONUT, <span className='highlight-text'>HONEY</span>, SODIUM BICARBONATE, NATURAL FLAVOR, WHEY AND WHEY PROTEIN CONCENTRATE), BROWN RICE CRISP (WHOLE GRAIN BROWN RICE FLOUR, <span className='highlight-text'>SUGAR</span>, MALTED BARLEY FLOUR, SALT), CARAMEL FLAVORED COATING (<span className='highlight-text'>GLUCOSE</span>, <span className='highlight-text'>SUGAR</span>, PALMOIL, NONFAT MILK, GLYCERIN, BUTTER (CREAM, SALT), MODIFIED CORNSTARCH, WHEY, SALT, MONO AND DIGLYCERIDES, NATURAL AND ARTIFICIAL FLAVOR, SOY LECITHIN), <span className='highlight-text'>INVERT SUGAR</span>, <span className='highlight-text'>CORN SYRUP SOLIDS</span>, ALMONDS, GLYCERIN, PEANUTS, DRIED SWEETENED CRANBERRY PIECES (<span className='highlight-text'>SUGAR</span>, DRIED CRANBERRIES, CITRIC ACID, ELDERBERRY JUICE CONCENTRATE [COLOR], SUNFLOWER OIL), RAISINS, SUNFLOWER KERNELS (SUNFLOWER SEED, SUNFLOWER OIL AND/OR COTTONSEED OIL), VEGETABLE SHORTENING (PALM KERNEL OIL, PALM OIL, SORBITAN TRISTEARATE, TBHQ [A PRESERVATIVE], CITRIC ACID), SALT, TOCOPHEROLS (PRESERVATIVE).
+          </p>
+      }, 
+      wasQuestionCompleted: false,
+      questionType: "text-analysis",
+      linkAddress: null,
+      harvardApproved: false
+    },
     {
       questionText: "Are eggs good for you?",
       answers: [
@@ -16,7 +57,7 @@ function GameArray() {
           wasSelected: false
         },
         {
-          answerText: "Yes, if you eat the eggwhites only. The yolk has the cholesterol, not the white.",
+          answerText: "Yes, if you eat the egg whites only. The yolk has the cholesterol, not the white.",
           explanation: "INCORRECT. It is perfectly OK to eat the yolk, that's where many of the vitamins are.",
           isCorrect: false,
           wasSelected: false
@@ -160,21 +201,9 @@ function GameArray() {
       questionText: "Custom Question: As an employee of [Company Name], you save on generic prescriptions because you only pay:",
       answers: [
         {
-          answerText: "Whatever you can negotiate with CVS, perhaps by threatening to take your business to Walmart.",
-          explanation: "However, if this works for you, let us know, and we'll make sure to give you credit for this answer.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "[Insert the amount employees pay for a brand name (if applicable), like '$50'.]",
-          explanation: "This is what you would pay for the same drug, if it's advertised on TV. But both drugs have the same active ingredient. You're just paying extra for the brand.",
-          isCorrect: false,
-          wasSelected: false
-        },
-        {
-          answerText: "$40",
-          explanation: "INCORRECT.",
-          isCorrect: false,
+          answerText: "[Insert the company-specific answer, like “$10”.]",
+          explanation: "CORRECT. Our employees get a great deal on generics! The exact same drug, with a brand name, would cost you [amount]. So it's important to ask, 'Is a generic available?', when someone is writing you a prescription.",
+          isCorrect: true,
           wasSelected: false
         },
         {
@@ -184,11 +213,23 @@ function GameArray() {
           wasSelected: false                
         },
         {
-          answerText: "[Insert the company-specific answer, like “$10”.]",
-          explanation: "CORRECT. Our employees get a great deal on generics! The exact same drug, with a brand name, would cost you $10. So it's important to ask, 'Is a generic available?', when someone is writing you a prescription.",
-          isCorrect: true,
+          answerText: "$40",
+          explanation: "INCORRECT.",
+          isCorrect: false,
           wasSelected: false
-        }
+        },
+        {
+          answerText: "[Insert the price for a brand name with a generic equivalent here]",
+          explanation: "This is what you would pay for the same drug, if it's advertised on TV. But both drugs have the same active ingredient. You're just paying extra for the brand.",
+          isCorrect: false,
+          wasSelected: false
+        },
+        {
+          answerText: "Whatever you can negotiate with the pharmacist, perhaps by threatening to take your business elsewhere.",
+          explanation: "However, if this works for you, let us know, and we'll make sure to give you credit for this answer.",
+          isCorrect: false,
+          wasSelected: false
+        },
       ],
       wasQuestionCompleted: false,
       questionType: "basic",

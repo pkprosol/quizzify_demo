@@ -167,6 +167,14 @@ class Quiz extends React.Component {
     return answersList;
   }
 
+  renderRightPanel() {
+    const currentQuestion = this.state.gameArray[this.state.questionIndex];
+    const questionImageLink = currentQuestion.sidePanel.image;
+    return (
+      <img href={questionImageLink} alt="Illustration" />
+    );
+  }
+
   renderFooter() {
 
     return <Footer 
@@ -225,6 +233,7 @@ class Quiz extends React.Component {
   }
 
   render() {
+    const currentQuestion = this.state.gameArray[this.state.questionIndex];
     if (this.state.lastScreen) {
       return (
         <div className="appContainer">
@@ -232,6 +241,24 @@ class Quiz extends React.Component {
           {this.renderFooter()}
         </div>
       );   
+    } else if (currentQuestion.sidePanel) {
+      return (
+        <div className="appContainer">
+          <div className="quizContainer">
+            <div className="leftPanel">
+              {this.renderQuestion()}
+              {this.renderInstructions()}
+              <ol>
+                {this.renderAnswers()}
+              </ol>
+            </div>
+            <div className="rightPanel">
+              {this.renderRightPanel()}
+            </div>
+            {this.renderFooter()}
+          </div>
+        </div>
+      );
     } else {
       return (
         <div className="appContainer">

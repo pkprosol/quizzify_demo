@@ -9,6 +9,17 @@
   padding: 1.5%;  
 }
 
+.leftPanel {
+  width: 30%;
+  display: inline-block;
+}
+
+.rightPanel {
+  width: 65%;
+  display: inline-block;
+  margin-left: 3%;
+}
+
 .instructionText {
   color: grey;
   font-weight: bold;

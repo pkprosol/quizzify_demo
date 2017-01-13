@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var isMobile = window.matchMedia("only screen and (max-width: 850px)"); 
+        if (isMobile.matches) {
+          $('#sample-one').removeClass("display-none");
+          $('#sample-two').addClass("display-none");
+        } else {
+          $('#sample-one').addClass("display-none");
+          $('#sample-two').removeClass("display-none");          
+         //  var random = Math.round(Math.random());
+          // if (random == 0) {
+          //  $('#sample-one').removeClass("display-none");
+           //   $('#sample-two').addClass("display-none");
+         //   } else {
+          //  $('#sample-one').addClass("display-none");
+          //    $('#sample-two').removeClass("display-none");        
+         //  }
+        }
+
+        $('.explanations').hide();
+          $('.answers').mouseenter(function() {
+            $(this).addClass("hover");
+          });
+          $('.answers').mouseleave(function() {
+            $(this).removeClass("hover");
+          });
+        $('.correct').click(function() {
+          $(this).addClass("green");
+          });
+          $('.incorrect').click(function() {
+          $(this).addClass("red");
+          });
+        $('.answer1').click(function() {
+          $('.explanations').hide();
+          $('.explanation1').show();
+          });
+        $('.answer2').click(function() {
+          $('.explanations').hide();
+          $('.explanation2').show();
+          });  
+        $('.answer3').click(function() {
+          $('.explanations').hide();
+          $('.explanation3').show();
+          });
+        $('.answer4').click(function() {          
+          $('.explanations').hide();
+          $('.explanation4').show();
+          $('.sugar').addClass('yellow-highlight');
+        });   
+        $('.answer5').click(function() {
+          $('.explanations').hide();
+          $('.explanation5').show();
+        });  
+        $('.answers').click(function() {
+          console.log(10);
+          $('html, body').animate({scrollTop: $("#block-yui_3_17_2_3_1435786378817_10645").offset().top}, 300);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+
+<!-- Sample One: CAT Scan -->
+    <div class="sample-quiz display-none" id="sample-one">
+      <header>Quizzify Demo</header>
+      
+      <div class="container">
+        <p class="question">How does the radiation in a CT (<em>aka</em> CAT) scan compare to an X-ray?</p>
+        <p class="answers correct answer1">A CT scan has about 500 times as much radiation as an X-ray.</p>
+        <ul><li class="explanations explanation1">Correct! Most have between 100 and 1000 times as much radiation. We aren't saying: "Never get a CT scan." We are saying: "Make sure to consider the risks." This is especially true for your children.</li></ul>
+        <p class="answers incorrect answer2">A CT scan has about 5 times as much radiation as an X-ray.</p>
+        <ul><li class="explanations explanation2">You’re not gonna believe this but it’s way worse...try again.</li></ul>
+        <p class="answers incorrect answer3">They are about the same.</p>
+        <ul><li class="explanations explanation3">You’re not gonna believe this but it’s way worse...try again.</li></ul>
+        <p class="answers incorrect answer4">The X-ray has more. CT technology doesn’t involve radiation at all.</p>
+        <ul style="margin-bottom: 15px;"><li class="explanations explanation4">Haha. Maybe on some other planet.</li></ul>
+      </div>
+
+      <a href="http://app.quizzify.com/demo" target="_blank"><button>Keep Playing!</button></a>
+    </div> <!-- End of sample-quiz, sample-one -->
+
+<!-- Sample Two: Granola --> 
+    <div class="sample-quiz display-none" id="sample-two">
+      <header>Quizzify Demo</header>
+
+      <div class="container">
+        <div class="half-pane-one">       
+          <p class="question">How many times do you see sugar (of any kind) on this Quaker® Quinoa Granola Bar package?</p>
+          <p class="answers incorrect answer1">3</p>
+          <ul><li class="explanations explanation1">Incorrect! It's a bit higher, believe it or not.</li></ul>
+          <p class="answers incorrect answer2">5</p>
+          <ul><li class="explanations explanation2">Incorrect! Not quite high enough.</li></ul>
+          <p class="answers incorrect answer3">7</p><ul><li class="explanations explanation3">Almost there.</li></ul>
+          <p class="answers correct answer4">10</p>
+          <ul style="margin-bottom: 15px;"><li class="explanations explanation4">Bingo! That's right. See the highlights to identify all the different mentions of sugar.</li></ul>
+        </div> <!-- End of half-pane-one -->
+
+        <div class="half-pane-two">
+          <img id="quaker-image" src="https://static1.squarespace.com/static/553eac55e4b088624077ce36/t/570ffd598259b56dfebd2cd5/1460665690020/quinoa_quinoa_yogurt_fruit_-amp-_nut-_5ct.jpg">
+          <span style="font-size:0.8em"><strong>INGREDIENTS:</strong><br>
+            QUINOA, YOGURT FLAVORED COATING (<span class="sugar">SUGAR</span>, PALMKERNEL AND PALM OIL, WHEY PROTEIN CONCENTRATE, DRIED NONFAT YOGURT - HEAT TREATED AFTER CULTURING [CULTURED NONFAT MILK], SOY LECITHIN, NATURAL FLAVOR, ARTIFICIAL COLOR, CITRIC ACID, SALT), <span class="sugar">GLUCOSE</span>, GRANOLA (WHOLE GRAIN ROLLED OATS, WHOLEGRAIN ROLLED WHEAT, <span class="sugar">BROWN SUGAR</span>, SUNFLOWER OIL, DRIED UNSWEETENED COCONUT, <span class="sugar">HONEY</span>, SODIUM BICARBONATE, NATURAL FLAVOR, WHEY AND WHEY PROTEIN CONCENTRATE), BROWN RICE CRISP (WHOLE GRAIN BROWN RICE FLOUR, <span class="sugar">SUGAR</span>, MALTED BARLEY FLOUR, SALT), CARAMEL FLAVORED COATING (<span class="sugar">GLUCOSE</span>, <span class="sugar">SUGAR</span>, PALMOIL, NONFAT MILK, GLYCERIN, BUTTER (CREAM, SALT), MODIFIED CORNSTARCH, WHEY, SALT, MONO AND DIGLYCERIDES, NATURAL AND ARTIFICIAL FLAVOR, SOY LECITHIN), <span class="sugar">INVERT SUGAR</span>, <span class="sugar">CORN SYRUP SOLIDS</span>, ALMONDS, GLYCERIN, PEANUTS, DRIED SWEETENED CRANBERRY PIECES (<span class="sugar">SUGAR</span>, DRIED CRANBERRIES, CITRIC ACID, ELDERBERRY JUICE CONCENTRATE [COLOR], SUNFLOWER OIL), RAISINS, SUNFLOWER KERNELS (SUNFLOWER SEED, SUNFLOWER OIL AND/OR COTTONSEED OIL), VEGETABLE SHORTENING (PALM KERNEL OIL, PALM OIL, SORBITAN TRISTEARATE, TBHQ [A PRESERVATIVE], CITRIC ACID), SALT, TOCOPHEROLS (PRESERVATIVE).
+          </span>
+        </div> <!-- End of half-pane-two -->
+      </div> <!-- End of container -->
+
+      <a href="http://app.quizzify.com/demo" target="_blank"><button>Keep Playing!</button></a>
+    </div> <!-- End of sample-two --> 
+  </body>
+</html>
+
+<style media="screen" type="text/css">
+  /* Quiz block */
+  #block-yui_3_17_2_3_1435786378817_10645 {
+    background-color: #EFEFEF;  
+    padding: 35px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  body {
+    font-family: avenir, sans-serif;
+  }
+  .sample-quiz {
+    width:95%;
+    max-width:1250px;
+    margin-left:auto;
+    margin-right:auto;
+    border-style: solid;
+    border-width: 0px;  
+    border-color: grey;
+    background-color: white;
+  }
+  .sample-quiz header {
+    background-color: #51a8f9;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: didot, serif;
+    font-size: 25px;
+    padding: 10px 0px;
+  }
+  .sample-quiz .sqs-block {
+    padding: 0 !important;
+  }
+
+  /* Button */
+
+  .sample-quiz button {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    font-family: avenir, sans-serif;
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .sample-quiz button {
+    background-color: #0C81EA !important;
+    color: white !important;
+  }
+  .sample-quiz button:hover {
+    background-color: #034C8D !important;      
+  }
+  .sample-quiz button {
+    border: none !important;
+  }
+
+  .container {
+    padding: 15px;
+  }
+  #sample-one {
+    width: 580px;
+  }
+  p, li, {
+    line-height: 1.2em;
+  }
+  span {
+    line-height: 1.5em;
+  }
+  p, ul {
+    margin-bottom: 8px;
+  }
+  .display-none {
+    display: none;
+  }
+  .yellow-highlight {
+    background-color:yellow;
+  }
+  .half-pane-one {
+    width:29%;
+    display:inline-block;
+    vertical-align:top;
+    margin-right:10px;
+  }
+  .half-pane-two {
+    width: 67%;
+    float: right;
+    display:inline-block;
+    vertical-align:top;   
+    background-color:white;
+    padding: 8px;
+    border: 1px double black;
+    margin-bottom: 15px;
+  }
+  .question {
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .answers {
+    margin-top: 2px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 8px;
+    background-color: #f4f4f4;
+  }
+  ul {
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+  .hover {
+    background-color: #C5C5C5;
+  }
+  .green {
+    background: #c8f0be;
+  }
+  .red {
+    background: #ffbebe;
+  }
+  .explanations {
+    color: #494949;
+  }
+  hr {
+    border-color: #FFFBF6;
+  }
+  #quaker-image {
+    float: left;
+    margin-left:5px;
+    margin-top:5px;
+    margin-right:12px; 
+    font-size: 0.65em;
+    width: 192px;
+  }
+
+
+  @media (max-device-width : 667px) {
+    #sample-quiz {
+      width: 95%;
+      float: none !important;
+    }
+    #sample-one {
+      width: 95%;
+    }
+    #block-yui_3_17_2_3_1435786378817_10645 {
+      padding: 10px 5px;
+    }
+    p, li {
+      font-size: 0.9em;
+    }
+  }
+</style>
