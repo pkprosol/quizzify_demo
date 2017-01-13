@@ -10,14 +10,36 @@
 }
 
 .leftPanel {
-  width: 30%;
+  width: 35%;
   display: inline-block;
 }
 
-.rightPanel {
-  width: 65%;
+.rightPanelContainer {
+  width: 61%;
   display: inline-block;
   margin-left: 3%;
+  vertical-align: top;
+  border: 1px solid grey;
+}
+
+.rightPanelContent {
+  padding: 12px;
+}
+
+.rightPanelContent p {
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.illustration {
+  float: left;
+  margin-right: 10px; 
+  margin-bottom: 10px;
+  width: 150px;
+}
+
+.highlight-text {
+  background-color: #fbfbb8;
 }
 
 .instructionText {

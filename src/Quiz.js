@@ -170,8 +170,19 @@ class Quiz extends React.Component {
   renderRightPanel() {
     const currentQuestion = this.state.gameArray[this.state.questionIndex];
     const questionImageLink = currentQuestion.sidePanel.image;
+    var sidePanelText;
+    if (currentQuestion.wasQuestionCompleted) {
+      sidePanelText = currentQuestion.sidePanel.bodyTextComplete;
+    } else {
+      sidePanelText = currentQuestion.sidePanel.bodyText;
+    }
     return (
-      <img href={questionImageLink} alt="Illustration" />
+      <div className="rightPanelContainer">
+        <div className="rightPanelContent">
+          <img className="illustration" src={questionImageLink} alt="Illustration" />
+          {sidePanelText}
+        </div>
+      </div>
     );
   }
 
@@ -252,9 +263,7 @@ class Quiz extends React.Component {
                 {this.renderAnswers()}
               </ol>
             </div>
-            <div className="rightPanel">
-              {this.renderRightPanel()}
-            </div>
+            {this.renderRightPanel()}
             {this.renderFooter()}
           </div>
         </div>
