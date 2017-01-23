@@ -61,12 +61,9 @@
   height: 25px;
 }
 
-.answerDetail {
-  padding-right: 25px;
-}
-
 ol {
   padding: 0;
+  list-style-type: none;
 }
 
 li {
@@ -74,14 +71,15 @@ li {
   box-shadow: 0px 0px 10px #dddddd;
   margin-bottom: 12px;
   list-style-position: inside;
-  text-indent: -1.2em;
-  padding-left: 2.5em;
-  padding-right: 20px;
+  /*text-indent: -1.2em;*/
+/*  padding-left: 2.5em;
+*/  padding-right: 20px;
 }
 
 .answerDetail {
-  text-indent: 0;
+  /*text-indent: 0;*/
   padding-left: 0;
+  padding-right: 25px;
 }
 
 .buttonContainer {
