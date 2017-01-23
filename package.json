@@ -1,7 +1,6 @@
 {
   "name": "quizzify-demo",
   "version": "0.1.2",
-  "homepage": "https://quizzify-demo.herokuapp.com/",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.4"
