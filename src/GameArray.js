@@ -33,7 +33,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://khn.org/news/heavy-use-of-ct-scans-raises-concerns-about-patients-exposure-to-radiation/",
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "The most important question to ask a surgeon is...",
@@ -66,7 +66,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://archive.ahrq.gov/patients-consumers/diagnosis-treatment/surgery/questions/surgery.pdf",
-      harvardApproved: false 
+      harvardApproved: true 
     },
     {
       questionText: "On this list, the four most dangerous things to do while driving are…",
@@ -177,7 +177,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://www.fda.gov/Food/GuidanceRegulation/GuidanceDocumentsRegulatoryInformation/LabelingNutrition/ucm064880.htm",
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "Having a close friend is especially helpful in preventing which disease?",
@@ -216,7 +216,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: null,
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "Which of the following are true about the annual pelvic exam?",
@@ -255,7 +255,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "https://www.statnews.com/2016/06/28/pelvic-exams-no-benefit/",
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "Which are correct about the PSA blood test for prostate cancer?",
@@ -294,7 +294,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://www.uspreventiveservicestaskforce.org/Page/Document/UpdateSummaryFinal/prostate-cancer-screening",
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "Long-term daily use of Nexium, Prilosec or Prevacid is suspected to increase your risk of:",
@@ -333,7 +333,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://www.npr.org/sections/health-shots/2015/06/11/413433350/data-dive-suggests-link-between-heartburn-drugs-and-heart-attacks",
-      harvardApproved: false
+      harvardApproved: true
     },
     {
       questionText: "Cigarette smoke contains which four harmful chemicals?",
@@ -372,7 +372,7 @@ function GameArray() {
       wasQuestionCompleted: false,
       questionType: "basic",
       linkAddress: "http://www.lung.org/stop-smoking/smoking-facts/whats-in-a-cigarette.html",
-      harvardApproved: false
+      harvardApproved: true
     },
   ];
 
