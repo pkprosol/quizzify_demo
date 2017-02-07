@@ -15,7 +15,7 @@ function GameArray() {
           answerText: "A CT scan has about 5 times as much as an x-ray.",
           explanation: "INCORRECT. You’re not gonna believe this, but it’s a lot worse. Try again.",
           isCorrect: false,
-          wasSelected: false//
+          wasSelected: false
         },
         {
           answerText: "They are about the same.",
