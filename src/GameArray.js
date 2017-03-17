@@ -156,7 +156,7 @@ function GameArray() {
           wasSelected: false
         },
         {
-          answerText: "Go to Whole Foods or some other crunchy-granola store specializing in organic food and pick something that says: 'no added sugar.'",
+          answerText: "Go to a crunchy-granola store specializing in organic food and pick something that says: 'no added sugar.'",
           explanation: "INCORRECT. Those cereals are often sweetened with honey, agave or some other sugary stuff with a fancy name. So you still have to read the label. And those 'two scoops' of dried raisins? Full of natural sugars that won't show up in the ingredients.",
           isCorrect: false,
           wasSelected: false                
@@ -228,7 +228,7 @@ function GameArray() {
           wasSelected: false
         },
         {
-          answerText: "It is probably useless.",
+          answerText: "It will not be useful for most women.",
           explanation: "CORRECT. The only people who support this exam are the gynecologists who profit from it. And even they admit there isn't any good evidence in favor of these exams.",
           isCorrect: true,
           wasSelected: false                
@@ -240,7 +240,7 @@ function GameArray() {
           wasSelected: false
         },
         {
-          answerText: "It is more likely to cause harm than provide benefits.",
+          answerText: "For most women, it is more likely to cause harm than provide benefits.",
           explanation: "CORRECT. Most 'findings' are false-positives that require follow-up and create anxiety and the need for extra tests. Many women really dislike these exams. If you are one of those women, read the link. You may decide to skip them.",
           isCorrect: true,
           wasSelected: false
